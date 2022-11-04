@@ -3,6 +3,7 @@ using Business.Constants;
 using Core1.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
+using Entities.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -48,5 +49,11 @@ namespace Business.Concrete
             _rentalDal.Add(rental);
             return new SuccessResult("Ürün güncellendi !!");
         }
+        public IDataResult<List<RentalDetailDto>> GetRentalDetails()
+        {
+            return new SuccessDataResult<List<RentalDetailDto>>(_rentalDal.GetRentalDetails(), "Kiralamalar Listelendi!");
+        }
+
+       
     }
 }
